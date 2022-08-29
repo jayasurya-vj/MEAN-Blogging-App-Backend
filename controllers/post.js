@@ -3,6 +3,7 @@ import {Post} from "../model/post.js";
 const createPost=(req, res, next) => {
     console.log(req.userData.userId,req.userData)
     const url= req.protocol+"://"+req.get("host");
+    console.log(url);
     const post=new Post({
       title: req.body.title,
       content: req.body.content,

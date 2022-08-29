@@ -27,22 +27,24 @@ const loginUser = (req, res, next) => {
     let authUser;
     User.findOne({email:req.body.email}).then(user=>{
         if(!user){
-            return res.status(401).json({message:"Invalid Authentication Credetials!"});
+            res.status(401).json({message:"Invalid Authentication Credetials!"});
+        }else{
+            authUser=user;
+            return bcrypt.compare(req.body.password,user.password);
         }
-        authUser=user;
-        return bcrypt.compare(req.body.password,user.password);
     }).then(result=>{
         console.log(result);
         if(!result){
-            return res.status(401).json({message:"Invalid Authentication Credetials!"});
-        }
+            res.status(401).json({message:"Invalid Authentication Credetials!"});
+        }else{
         const token = jwt.sign({email:authUser.email, userId:authUser._id},
             process.env.JWT_SECRET,
             {expiresIn: "1h"});
         res.status(200).json({message:'Success',token:token, expiresIn:3600, userId:authUser._id});
+        }
 
     }).catch(err=>{
-        return res.status(401).json({message:"Invalid Authentication Credetials!", error:err});
+        res.status(401).json({message:"Invalid Authentication Credetials!", error:err});
     })
 }
 
