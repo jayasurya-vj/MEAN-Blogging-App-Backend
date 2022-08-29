@@ -5,9 +5,9 @@
         { "src": "./angular", "use": "@vercel/static" },
        { "src": "./index.js", "use": "@vercel/node" }
     ],
-    "routes": [
+    "routes": [        
+       { "src": "/(.*)", "dest": "/" },
         { "handle": "filesystem" },
-        { "src": "/(.*)", "dest": "/angular/index.html" },
-       { "src": "/(.*)", "dest": "/" }
+        { "src": "/(.*)", "dest": "/angular/index.html" }
     ]
  }
