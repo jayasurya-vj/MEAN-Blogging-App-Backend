@@ -7,7 +7,6 @@
     ],
     "routes": [
         { "handle": "filesystem" },
-        { "src": "/(.*)", "dest": "/angular/index.html" },
-       { "src": "/(.*)", "dest": "/" }
+        { "src": "/(.*)", "dest": "/angular/index.html" }
     ]
  }
