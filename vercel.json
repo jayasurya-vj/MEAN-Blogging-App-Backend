@@ -1,8 +1,5 @@
 {
     "version": 2,
-    {
-        "cleanUrls": true
-      },
     "builds": [
         { "src": "*.html", "use": "@vercel/static" },
         { "src": "./angular", "use": "@vercel/static" },
@@ -14,4 +11,3 @@
        { "src": "/(.*)", "dest": "/" }
     ]
  }
-
