@@ -30,6 +30,6 @@ app.use((req, res, next) => {
 app.use("/api/posts",postsRouter);
 app.use("/api/user",userRouter);
 app.use("",(req,res,next)=>{
-  res.sendFile(path.json(__dirname,"angular","index.html"));
+  res.sendFile(path.join(__dirname,"angular","index.html"));
 });
 
