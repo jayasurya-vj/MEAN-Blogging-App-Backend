@@ -5,7 +5,7 @@ import path from "path";
 import {postsRouter} from "./routes/posts.js";
 import {userRouter} from "./routes/user.js";
 
-
+const __dirname = path.resolve();
 export const app = express();
 
 
