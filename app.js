@@ -18,7 +18,7 @@ mongoose.connect("mongodb+srv://jayasurya:"+ process.env.MONGO_PWD +"@cluster0.t
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use("/images",express.static(path.join("images")));
-app.use("/",express.static(path.join("angular")));
+// app.use("/",express.static(path.join("angular")));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept,Authorization");
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 app.use("/api/posts",postsRouter);
 app.use("/api/user",userRouter);
-app.use("*",(req,res,next)=>{
-  res.sendFile(path.join(__dirname,"angular","index.html"));
-});
+// app.use("*",(req,res,next)=>{
+//   res.sendFile(path.join(__dirname,"angular","index.html"));
+// });
 
