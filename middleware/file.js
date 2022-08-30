@@ -2,6 +2,8 @@ import multer from "multer";
 import path from "path";
 const __dirname = path.resolve();
 
+app.use(multer({ dest: 'images' }).single('image'));
+
 const MIME_TYPE_MAP={
     'image/png':'png',
     'image/jpg':'jpg',

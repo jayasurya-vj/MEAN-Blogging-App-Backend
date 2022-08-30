@@ -8,7 +8,7 @@ import {userRouter} from "./routes/user.js";
 const __dirname = path.resolve();
 export const app = express();
 
-app.use(multer({ dest: '/images' }).single('image'));
+
 
 
 mongoose.connect("mongodb+srv://jayasurya:"+ process.env.MONGO_PWD +"@cluster0.trotk.mongodb.net/blog-app?retryWrites=true&w=majority")
