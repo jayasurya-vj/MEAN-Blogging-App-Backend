@@ -51,4 +51,4 @@ const server=http.createServer(app); //important
 server.on("error", onError);
 server.on("listening", onListening);
 
-server.listen(process.env.port || 7000); //important
+server.listen(process.env.port || 3000); //important

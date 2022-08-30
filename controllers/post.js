@@ -1,13 +1,13 @@
 import {Post} from "../model/post.js";
 
 const createPost=(req, res, next) => {
-    console.log(req.userData.userId,req.userData)
-    const url= req.protocol+"://"+req.get("host");
-    console.log(url);
+    console.log(req,req.userData.userId,req.userData)
+    // const url= req.protocol+"://"+req.get("host");
+    // console.log(url);
     const post=new Post({
       title: req.body.title,
       content: req.body.content,
-      imagePath: url+"/images/"+req.file.filename,
+      // imagePath: url+"/images/"+req.file.filename,
       creator:req.userData.userId
     });
     post.save().then(result=>{
@@ -25,16 +25,16 @@ const createPost=(req, res, next) => {
 }
 
 const editPost = (req, res, next) => {
-    const url= req.protocol+"://"+req.get("host");
-    let imagePath=req.body.imagePath;
-    if(req.file){
-      imagePath= url+"/images/"+req.file.filename;
-    }
+    // const url= req.protocol+"://"+req.get("host");
+    // let imagePath=req.body.imagePath;
+    // if(req.file){
+    //   imagePath= url+"/images/"+req.file.filename;
+    // }
     const post=new Post({
       _id:req.params.id,
       title:req.body.title,
       content:req.body.content,
-      imagePath:imagePath,
+      // imagePath:imagePath,
       creator:req.userData.userId
     });
     Post.updateOne({_id:req.params.id,creator:req.userData.userId},post).then(result=>{
