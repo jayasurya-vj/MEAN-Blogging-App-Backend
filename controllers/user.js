@@ -33,7 +33,7 @@ const loginUser = (req, res, next) => {
             return bcrypt.compare(req.body.password,user.password);
         }
     }).then(result=>{
-        console.log(result);
+        // console.log(result);
         if(!result){
             res.status(401).json({message:"Invalid Authentication Credetials!"});
         }else{

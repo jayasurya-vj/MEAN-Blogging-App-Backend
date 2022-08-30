@@ -1,7 +1,7 @@
 import {Post} from "../model/post.js";
 
 const createPost=(req, res, next) => {
-    console.log(req,req.userData.userId,req.userData)
+    // console.log(req,req.userData.userId,req.userData)
     // const url= req.protocol+"://"+req.get("host");
     // console.log(url);
     const post=new Post({
@@ -11,7 +11,7 @@ const createPost=(req, res, next) => {
       creator:req.userData.userId
     });
     post.save().then(result=>{
-      console.log(result);
+      // console.log(result);
       res.status(201).json({
         message: "success",
         post:{
