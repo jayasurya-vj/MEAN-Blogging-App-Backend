@@ -13,7 +13,7 @@ destination: (req,file,cb)=>{
     const isValid= MIME_TYPE_MAP[file.mimetype];
     let error = new Error("Invalid mime type");
     if(isValid) error=null;
-    cb(error,path.join(__dirname, '/images'));
+    cb(error,"images");
 },
 filename: (req,file,cb)=>{
     const name=file.originalname.toLowerCase().split(' ').join('-');
