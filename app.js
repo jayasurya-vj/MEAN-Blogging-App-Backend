@@ -19,7 +19,7 @@ mongoose.connect("mongodb+srv://jayasurya:"+ process.env.MONGO_PWD +"@cluster0.t
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-app.use('/images', express.static('images'));
+// app.use('images', express.static('images'));
 app.use("images",express.static( path.join(__dirname + '/images')));
 // app.use("/",express.static(path.join("angular")));
 app.use((req, res, next) => {
