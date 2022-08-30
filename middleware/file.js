@@ -25,5 +25,5 @@ filename: (req,file,cb)=>{
 
 }
 })
-export const extractedFile = multer({ dest: 'images' }).single('image');
+
 export const extractedFile = multer({storage:storage}).single("image");
